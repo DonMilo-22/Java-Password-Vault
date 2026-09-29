@@ -39,3 +39,7 @@ Java cryptography APIs, binary file I/O, records, collections and interactive co
 ## 📄 License
 
 MIT.
+
+## 🆕 Recent changes
+
+- Added an encrypted-vault delete option so individual saved credentials can be removed.
