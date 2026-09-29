@@ -61,7 +61,7 @@ public class Vault {
     try { entries = load(master); } catch (Exception e) { System.err.println("Could not unlock vault. Wrong password or damaged file."); return; }
     Scanner sc = new Scanner(System.in);
     while (true) {
-      System.out.println("\n1) List  2) Add  3) Reveal  0) Exit");
+      System.out.println("\n1) List  2) Add  3) Reveal  4) Delete  0) Exit");
       String choice = sc.nextLine().trim();
       if (choice.equals("0")) break;
       if (choice.equals("1")) {
@@ -76,6 +76,14 @@ public class Vault {
         System.out.print("Entry number: ");
         try { int i=Integer.parseInt(sc.nextLine())-1; Entry e=entries.get(i); System.out.println(e.service()+" -> "+e.username()+" / "+e.password()); }
         catch(Exception e){ System.out.println("Invalid entry."); }
+      } else if (choice.equals("4")) {
+        System.out.print("Entry number to delete: ");
+        try {
+          int i=Integer.parseInt(sc.nextLine())-1;
+          Entry removed=entries.remove(i);
+          save(entries,master);
+          System.out.println("Deleted: "+removed.service());
+        } catch(Exception e){ System.out.println("Invalid entry."); }
       }
     }
     Arrays.fill(master,'\0');
