@@ -42,4 +42,10 @@ MIT.
 
 ## 🆕 Recent changes
 
+### 2026-10-04
+
+- Added a menu option to search encrypted vault entries by service name without revealing passwords.
+
+### Previous update
+
 - Added an encrypted-vault delete option so individual saved credentials can be removed.
