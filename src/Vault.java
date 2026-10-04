@@ -61,7 +61,7 @@ public class Vault {
     try { entries = load(master); } catch (Exception e) { System.err.println("Could not unlock vault. Wrong password or damaged file."); return; }
     Scanner sc = new Scanner(System.in);
     while (true) {
-      System.out.println("\n1) List  2) Add  3) Reveal  4) Delete  0) Exit");
+      System.out.println("\n1) List  2) Add  3) Reveal  4) Delete  5) Search  0) Exit");
       String choice = sc.nextLine().trim();
       if (choice.equals("0")) break;
       if (choice.equals("1")) {
@@ -84,6 +84,14 @@ public class Vault {
           save(entries,master);
           System.out.println("Deleted: "+removed.service());
         } catch(Exception e){ System.out.println("Invalid entry."); }
+      } else if (choice.equals("5")) {
+        System.out.print("Service search: "); String query=sc.nextLine().trim().toLowerCase(Locale.ROOT);
+        if (query.isEmpty()) { System.out.println("Enter a service name."); continue; }
+        for (int i=0;i<entries.size();i++) {
+          Entry e=entries.get(i);
+          if (e.service().toLowerCase(Locale.ROOT).contains(query))
+            System.out.printf("%d. %s (%s)%n",i+1,e.service(),e.username());
+        }
       }
     }
     Arrays.fill(master,'\0');
