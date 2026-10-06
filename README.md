@@ -42,6 +42,12 @@ MIT.
 
 ## 🆕 Recent changes
 
+### 2026-10-05
+
+- Adding a credential now warns when the same service and username already exist in the vault.
+
+### 2026-10-04
+
 ### 2026-10-04
 
 - Added a menu option to search encrypted vault entries by service name without revealing passwords.
