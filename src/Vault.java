@@ -70,6 +70,8 @@ public class Vault {
       } else if (choice.equals("2")) {
         System.out.print("Service: "); String service=sc.nextLine();
         System.out.print("Username: "); String user=sc.nextLine();
+        boolean duplicate=entries.stream().anyMatch(e -> e.service().equalsIgnoreCase(service) && e.username().equalsIgnoreCase(user));
+        if (duplicate) System.out.println("Warning: an entry for this service and username already exists.");
         char[] pw=console.readPassword("Password: ");
         entries.add(new Entry(service,user,new String(pw))); Arrays.fill(pw,'\0'); save(entries,master); System.out.println("Saved.");
       } else if (choice.equals("3")) {
