@@ -82,9 +82,12 @@ public class Vault {
         System.out.print("Entry number to delete: ");
         try {
           int i=Integer.parseInt(sc.nextLine())-1;
-          Entry removed=entries.remove(i);
+          Entry selected=entries.get(i);
+          System.out.print("Delete "+selected.service()+"? Type yes to confirm: ");
+          if (!sc.nextLine().trim().equalsIgnoreCase("yes")) { System.out.println("Cancelled."); continue; }
+          entries.remove(i);
           save(entries,master);
-          System.out.println("Deleted: "+removed.service());
+          System.out.println("Deleted: "+selected.service());
         } catch(Exception e){ System.out.println("Invalid entry."); }
       } else if (choice.equals("5")) {
         System.out.print("Service search: "); String query=sc.nextLine().trim().toLowerCase(Locale.ROOT);
