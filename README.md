@@ -42,11 +42,13 @@ MIT.
 
 ## 🆕 Recent changes
 
+### 2026-10-06
+
+- Deleting a credential now requires explicit confirmation to prevent accidental removal.
+
 ### 2026-10-05
 
 - Adding a credential now warns when the same service and username already exist in the vault.
-
-### 2026-10-04
 
 ### 2026-10-04
 
