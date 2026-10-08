@@ -42,6 +42,10 @@ MIT.
 
 ## 🆕 Recent changes
 
+### 2026-10-07
+
+- New credentials now get a simple local password-strength hint based on length and character variety.
+
 ### 2026-10-06
 
 - Deleting a credential now requires explicit confirmation to prevent accidental removal.
