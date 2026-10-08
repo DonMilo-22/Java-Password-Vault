@@ -79,7 +79,7 @@ public class Vault {
         if (rawPw.matches(".*[A-Z].*") && rawPw.matches(".*[a-z].*")) score++;
         if (rawPw.matches(".*\\d.*") && rawPw.matches(".*[^A-Za-z0-9].*")) score++;
         System.out.println("Password strength: "+(score == 3 ? "strong" : score == 2 ? "medium" : "weak"));
-        entries.add(new Entry(service,user,rawPw); Arrays.fill(pw,'\0'); save(entries,master); System.out.println("Saved.");
+        entries.add(new Entry(service,user,rawPw)); Arrays.fill(pw,'\0'); save(entries,master); System.out.println("Saved.");
       } else if (choice.equals("3")) {
         System.out.print("Entry number: ");
         try { int i=Integer.parseInt(sc.nextLine())-1; Entry e=entries.get(i); System.out.println(e.service()+" -> "+e.username()+" / "+e.password()); }
