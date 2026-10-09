@@ -42,6 +42,10 @@ MIT.
 
 ## 🆕 Recent changes
 
+### 2026-10-08
+
+- Added an `Update` menu option to replace the password of an existing encrypted entry.
+
 ### 2026-10-07
 
 - New credentials now get a simple local password-strength hint based on length and character variety.
