@@ -61,7 +61,7 @@ public class Vault {
     try { entries = load(master); } catch (Exception e) { System.err.println("Could not unlock vault. Wrong password or damaged file."); return; }
     Scanner sc = new Scanner(System.in);
     while (true) {
-      System.out.println("\n1) List  2) Add  3) Reveal  4) Delete  5) Search  6) Update  0) Exit");
+      System.out.println("\n1) List  2) Add  3) Reveal  4) Delete  5) Search  6) Update  7) Stats  0) Exit");
       String choice = sc.nextLine().trim();
       if (choice.equals("0")) break;
       if (choice.equals("1")) {
@@ -114,6 +114,9 @@ public class Vault {
           save(entries,master);
           System.out.println("Updated: "+old.service());
         } catch(Exception e){ System.out.println("Invalid entry."); }
+      } else if (choice.equals("7")) {
+        long services=entries.stream().map(e -> e.service().toLowerCase(Locale.ROOT)).distinct().count();
+        System.out.println("Entries: "+entries.size()+" | Unique services: "+services);
       }
     }
     Arrays.fill(master,'\0');
