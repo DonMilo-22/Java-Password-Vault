@@ -42,6 +42,10 @@ MIT.
 
 ## 🆕 Recent changes
 
+### 2026-10-09
+
+- Added a `Stats` menu option showing total entries and unique services without revealing passwords.
+
 ### 2026-10-08
 
 - Added an `Update` menu option to replace the password of an existing encrypted entry.
