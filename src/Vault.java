@@ -100,7 +100,7 @@ public class Vault {
         if (query.isEmpty()) { System.out.println("Enter a service name."); continue; }
         for (int i=0;i<entries.size();i++) {
           Entry e=entries.get(i);
-          if (e.service().toLowerCase(Locale.ROOT).contains(query))
+          if (e.service().toLowerCase(Locale.ROOT).contains(query) || e.username().toLowerCase(Locale.ROOT).contains(query))
             System.out.printf("%d. %s (%s)%n",i+1,e.service(),e.username());
         }
       } else if (choice.equals("6")) {
