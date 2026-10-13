@@ -60,6 +60,10 @@ Licencia: MIT.
 
 - Vault search now matches both service names and usernames.
 
+## Actualización adicional 2026-10-12
+
+- Searches now show a clear message when no saved service or username matches the query.
+
 ## Historial
 
 Consulta [CHANGELOG.md](CHANGELOG.md) para ver las actualizaciones.
