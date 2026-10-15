@@ -99,14 +99,17 @@ public class Vault {
         System.out.print("Service search: "); String query=sc.nextLine().trim().toLowerCase(Locale.ROOT);
         if (query.isEmpty()) { System.out.println("Enter a service name."); continue; }
         boolean found=false;
+        int matches=0;
         for (int i=0;i<entries.size();i++) {
           Entry e=entries.get(i);
           if (e.service().toLowerCase(Locale.ROOT).contains(query) || e.username().toLowerCase(Locale.ROOT).contains(query)) {
             found=true;
+            matches++;
             System.out.printf("%d. %s (%s)%n",i+1,e.service(),e.username());
           }
         }
         if (!found) System.out.println("No matching entries.");
+        else System.out.println("Matches: "+matches);
       } else if (choice.equals("6")) {
         System.out.print("Entry number to update: ");
         try {
