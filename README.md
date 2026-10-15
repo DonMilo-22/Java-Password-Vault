@@ -67,3 +67,7 @@ Licencia: MIT.
 ## Historial
 
 Consulta [CHANGELOG.md](CHANGELOG.md) para ver las actualizaciones.
+
+## Actualización 2026-10-14
+
+- Search now reports the number of matching saved entries.
