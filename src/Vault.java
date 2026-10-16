@@ -123,7 +123,8 @@ public class Vault {
         } catch(Exception e){ System.out.println("Invalid entry."); }
       } else if (choice.equals("7")) {
         long services=entries.stream().map(e -> e.service().toLowerCase(Locale.ROOT)).distinct().count();
-        System.out.println("Entries: "+entries.size()+" | Unique services: "+services);
+        long shortPasswords=entries.stream().filter(e -> e.password().length()<12).count();
+        System.out.println("Entries: "+entries.size()+" | Unique services: "+services+" | Short passwords (<12 chars): "+shortPasswords);
       }
     }
     Arrays.fill(master,'\0');
