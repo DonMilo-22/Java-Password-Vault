@@ -71,3 +71,7 @@ Consulta [CHANGELOG.md](CHANGELOG.md) para ver las actualizaciones.
 ## Actualización 2026-10-14
 
 - Search now reports the number of matching saved entries.
+
+## Actualización 2026-10-15
+
+- Vault statistics now count stored passwords shorter than 12 characters, without displaying the passwords themselves.
