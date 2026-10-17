@@ -38,6 +38,7 @@ La aplicación solicita la contraseña maestra y muestra un menú.
 | `5` | Buscar por servicio. |
 | `6` | Actualizar la contraseña de una entrada. |
 | `7` | Consultar estadísticas. |
+| `8` | Mostrar entradas ordenadas por nombre del servicio, sin revelar contraseñas. |
 | `0` | Salir. |
 
 ## Almacenamiento y seguridad
@@ -75,3 +76,8 @@ Consulta [CHANGELOG.md](CHANGELOG.md) para ver las actualizaciones.
 ## Actualización 2026-10-15
 
 - Vault statistics now count stored passwords shorter than 12 characters, without displaying the passwords themselves.
+
+
+## Actualización 2026-10-16
+
+- Added menu option 8 to display saved entries alphabetically by service name without exposing their passwords or changing the stored order.
