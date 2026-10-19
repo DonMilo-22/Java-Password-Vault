@@ -81,3 +81,17 @@ Consulta [CHANGELOG.md](CHANGELOG.md) para ver las actualizaciones.
 ## Actualización 2026-10-16
 
 - Added menu option 8 to display saved entries alphabetically by service name without exposing their passwords or changing the stored order.
+
+
+## New utility: encrypted vault backup
+
+Create a timestamped copy of the encrypted vault file before testing changes or moving the project:
+
+```bash
+javac -d out src/VaultBackup.java
+java -cp out VaultBackup
+# Or provide a vault file in another location:
+java -cp out VaultBackup /path/to/vault.dat
+```
+
+The helper copies the encrypted file as-is into `vault-backups/`; it never asks for or prints the master password. Keep backup files protected like the original vault.
