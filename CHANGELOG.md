@@ -1,3 +1,8 @@
+
+
+### 2026-10-18
+
+- Added `VaultBackup.java` to create timestamped copies of the encrypted vault file without exposing its contents.
 # Historial de cambios
 
 Entradas originales conservadas en inglés. Las fechas corresponden al historial existente; la última entrada no tenía fecha registrada.
