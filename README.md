@@ -95,3 +95,15 @@ java -cp out VaultBackup /path/to/vault.dat
 ```
 
 The helper copies the encrypted file as-is into `vault-backups/`; it never asks for or prints the master password. Keep backup files protected like the original vault.
+
+
+## New utility: basic password strength estimate
+
+Compile and run the standalone estimator:
+
+```bash
+javac -d out src/PasswordStrength.java
+java -cp out PasswordStrength 'Example-password-123'
+```
+
+It checks length and character variety and prints a rough category. This is educational guidance only, not a replacement for a password-strength library. Avoid using real passwords as command-line arguments on shared systems.
