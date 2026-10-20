@@ -1,5 +1,10 @@
 
 
+### 2026-10-19
+
+- Added `PasswordStrength.java`, an educational password-strength estimate based on length and character variety.
+
+
 ### 2026-10-18
 
 - Added `VaultBackup.java` to create timestamped copies of the encrypted vault file without exposing its contents.
