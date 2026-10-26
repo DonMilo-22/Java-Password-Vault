@@ -61,7 +61,7 @@ public class Vault {
     try { entries = load(master); } catch (Exception e) { System.err.println("Could not unlock vault. Wrong password or damaged file."); return; }
     Scanner sc = new Scanner(System.in);
     while (true) {
-      System.out.println("\n1) List  2) Add  3) Reveal  4) Delete  5) Search  6) Update  7) Stats  8) Sort by service  0) Exit");
+      System.out.println("\n1) List  2) Add  3) Reveal  4) Delete  5) Search  6) Update  7) Stats  8) Sort by service  9) Check password reuse  0) Exit");
       String choice = sc.nextLine().trim();
       if (choice.equals("0")) break;
       if (choice.equals("1")) {
@@ -121,6 +121,12 @@ public class Vault {
           save(entries,master);
           System.out.println("Updated: "+old.service());
         } catch(Exception e){ System.out.println("Invalid entry."); }
+      } else if (choice.equals("9")) {
+        long reusedGroups = entries.stream().map(Entry::password).distinct()
+          .filter(p -> entries.stream().filter(e -> e.password().equals(p)).count() > 1).count();
+        long affectedEntries = entries.stream()
+          .filter(e -> entries.stream().filter(other -> other.password().equals(e.password())).count() > 1).count();
+        System.out.println("Reused password groups: " + reusedGroups + " | Entries using a reused password: " + affectedEntries);
       } else if (choice.equals("8")) {
         var sorted = new ArrayList<>(entries);
         sorted.sort(Comparator.comparing(e -> e.service().toLowerCase(Locale.ROOT)));
