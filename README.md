@@ -39,6 +39,7 @@ La aplicación solicita la contraseña maestra y muestra un menú.
 | `6` | Actualizar la contraseña de una entrada. |
 | `7` | Consultar estadísticas. |
 | `8` | Mostrar entradas ordenadas por nombre del servicio, sin revelar contraseñas. |
+| `9` | Detectar contraseñas reutilizadas sin mostrar sus valores. |
 | `0` | Salir. |
 
 ## Almacenamiento y seguridad
@@ -107,3 +108,8 @@ java -cp out PasswordStrength 'Example-password-123'
 ```
 
 It checks length and character variety and prints a rough category. This is educational guidance only, not a replacement for a password-strength library. Avoid using real passwords as command-line arguments on shared systems.
+
+
+## Actualización 2026-10-25
+
+- Added menu option 9 to report how many password groups are reused and how many entries are affected, without displaying the passwords themselves.
