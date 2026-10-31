@@ -113,3 +113,7 @@ It checks length and character variety and prints a rough category. This is educ
 ## Actualización 2026-10-25
 
 - Added menu option 9 to report how many password groups are reused and how many entries are affected, without displaying the passwords themselves.
+
+## Actualización 2026-10-30
+
+- Added menu option `10` to count saved passwords in three length ranges (under 12, 12-15, and 16+ characters) without revealing any password values.
