@@ -61,7 +61,7 @@ public class Vault {
     try { entries = load(master); } catch (Exception e) { System.err.println("Could not unlock vault. Wrong password or damaged file."); return; }
     Scanner sc = new Scanner(System.in);
     while (true) {
-      System.out.println("\n1) List  2) Add  3) Reveal  4) Delete  5) Search  6) Update  7) Stats  8) Sort by service  9) Check password reuse  0) Exit");
+      System.out.println("\n1) List  2) Add  3) Reveal  4) Delete  5) Search  6) Update  7) Stats  8) Sort by service  9) Check password reuse  10) Password length audit  0) Exit");
       String choice = sc.nextLine().trim();
       if (choice.equals("0")) break;
       if (choice.equals("1")) {
@@ -121,7 +121,7 @@ public class Vault {
           save(entries,master);
           System.out.println("Updated: "+old.service());
         } catch(Exception e){ System.out.println("Invalid entry."); }
-      } else if (choice.equals("9")) {
+      } else if (choice.equals("10")) {\n        long under12 = entries.stream().filter(e -> e.password().length() < 12).count();\n        long from12to15 = entries.stream().filter(e -> e.password().length() >= 12 && e.password().length() < 16).count();\n        long atLeast16 = entries.stream().filter(e -> e.password().length() >= 16).count();\n        System.out.println("Password length audit | under 12: " + under12 + " | 12-15: " + from12to15 + " | 16+: " + atLeast16);\n      } else if (choice.equals("9")) {
         long reusedGroups = entries.stream().map(Entry::password).distinct()
           .filter(p -> entries.stream().filter(e -> e.password().equals(p)).count() > 1).count();
         long affectedEntries = entries.stream()
