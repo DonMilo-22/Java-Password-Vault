@@ -121,7 +121,12 @@ public class Vault {
           save(entries,master);
           System.out.println("Updated: "+old.service());
         } catch(Exception e){ System.out.println("Invalid entry."); }
-      } else if (choice.equals("10")) {\n        long under12 = entries.stream().filter(e -> e.password().length() < 12).count();\n        long from12to15 = entries.stream().filter(e -> e.password().length() >= 12 && e.password().length() < 16).count();\n        long atLeast16 = entries.stream().filter(e -> e.password().length() >= 16).count();\n        System.out.println("Password length audit | under 12: " + under12 + " | 12-15: " + from12to15 + " | 16+: " + atLeast16);\n      } else if (choice.equals("9")) {
+      } else if (choice.equals("10")) {
+        long under12 = entries.stream().filter(e -> e.password().length() < 12).count();
+        long from12to15 = entries.stream().filter(e -> e.password().length() >= 12 && e.password().length() < 16).count();
+        long atLeast16 = entries.stream().filter(e -> e.password().length() >= 16).count();
+        System.out.println("Password length audit | under 12: " + under12 + " | 12-15: " + from12to15 + " | 16+: " + atLeast16);
+      } else if (choice.equals("9")) {
         long reusedGroups = entries.stream().map(Entry::password).distinct()
           .filter(p -> entries.stream().filter(e -> e.password().equals(p)).count() > 1).count();
         long affectedEntries = entries.stream()
