@@ -61,7 +61,7 @@ public class Vault {
     try { entries = load(master); } catch (Exception e) { System.err.println("Could not unlock vault. Wrong password or damaged file."); return; }
     Scanner sc = new Scanner(System.in);
     while (true) {
-      System.out.println("\n1) List  2) Add  3) Reveal  4) Delete  5) Search  6) Update  7) Stats  8) Sort by service  9) Check password reuse  10) Password length audit  0) Exit");
+      System.out.println("\n1) List  2) Add  3) Reveal  4) Delete  5) Search  6) Update  7) Stats  8) Sort by service  9) Check password reuse  10) Password length audit  11) Generate password  0) Exit");
       String choice = sc.nextLine().trim();
       if (choice.equals("0")) break;
       if (choice.equals("1")) {
@@ -121,7 +121,7 @@ public class Vault {
           save(entries,master);
           System.out.println("Updated: "+old.service());
         } catch(Exception e){ System.out.println("Invalid entry."); }
-      } else if (choice.equals("10")) {
+      } else if (choice.equals("11")) {\n        String alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%^&*()-_=+";\n        StringBuilder generated = new StringBuilder(20);\n        for (int i = 0; i < 20; i++) generated.append(alphabet.charAt(RNG.nextInt(alphabet.length())));\n        System.out.println("Generated password: " + generated);\n        System.out.println("Copy it now; it is not saved in the vault.");\n      } else if (choice.equals("10")) {
         long under12 = entries.stream().filter(e -> e.password().length() < 12).count();
         long from12to15 = entries.stream().filter(e -> e.password().length() >= 12 && e.password().length() < 16).count();
         long atLeast16 = entries.stream().filter(e -> e.password().length() >= 16).count();
