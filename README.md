@@ -117,3 +117,7 @@ It checks length and character variety and prints a rough category. This is educ
 ## Actualización 2026-10-30
 
 - Added menu option `10` to count saved passwords in three length ranges (under 12, 12-15, and 16+ characters) without revealing any password values.
+
+## Actualización 2026-11-02
+
+- Added menu option `11` to generate a random 20-character password using letters, numbers, and symbols. The generated password is displayed once and is not automatically stored.
