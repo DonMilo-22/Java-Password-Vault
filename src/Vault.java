@@ -121,7 +121,13 @@ public class Vault {
           save(entries,master);
           System.out.println("Updated: "+old.service());
         } catch(Exception e){ System.out.println("Invalid entry."); }
-      } else if (choice.equals("11")) {\n        String alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%^&*()-_=+";\n        StringBuilder generated = new StringBuilder(20);\n        for (int i = 0; i < 20; i++) generated.append(alphabet.charAt(RNG.nextInt(alphabet.length())));\n        System.out.println("Generated password: " + generated);\n        System.out.println("Copy it now; it is not saved in the vault.");\n      } else if (choice.equals("10")) {
+      } else if (choice.equals("11")) {
+        String alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%^&*()-_=+";
+        StringBuilder generated = new StringBuilder(20);
+        for (int i = 0; i < 20; i++) generated.append(alphabet.charAt(RNG.nextInt(alphabet.length())));
+        System.out.println("Generated password: " + generated);
+        System.out.println("Copy it now; it is not saved in the vault.");
+      } else if (choice.equals("10")) {
         long under12 = entries.stream().filter(e -> e.password().length() < 12).count();
         long from12to15 = entries.stream().filter(e -> e.password().length() >= 12 && e.password().length() < 16).count();
         long atLeast16 = entries.stream().filter(e -> e.password().length() >= 16).count();
