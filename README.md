@@ -121,3 +121,7 @@ It checks length and character variety and prints a rough category. This is educ
 ## Actualización 2026-11-02
 
 - Added menu option `11` to generate a random 20-character password using letters, numbers, and symbols. The generated password is displayed once and is not automatically stored.
+
+## Actualización 2026-11-04
+
+- Added menu option `12` to count saved passwords in three length groups: under 12, 12-15, and 16+ characters. Only counts are displayed; password values remain hidden.
