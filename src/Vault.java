@@ -61,7 +61,7 @@ public class Vault {
     try { entries = load(master); } catch (Exception e) { System.err.println("Could not unlock vault. Wrong password or damaged file."); return; }
     Scanner sc = new Scanner(System.in);
     while (true) {
-      System.out.println("\n1) List  2) Add  3) Reveal  4) Delete  5) Search  6) Update  7) Stats  8) Sort by service  9) Check password reuse  10) Password length audit  11) Generate password  0) Exit");
+      System.out.println("\n1) List  2) Add  3) Reveal  4) Delete  5) Search  6) Update  7) Stats  8) Sort by service  9) Check password reuse  10) Password length audit  11) Generate password  12) Password length groups  0) Exit");
       String choice = sc.nextLine().trim();
       if (choice.equals("0")) break;
       if (choice.equals("1")) {
@@ -121,6 +121,14 @@ public class Vault {
           save(entries,master);
           System.out.println("Updated: "+old.service());
         } catch(Exception e){ System.out.println("Invalid entry."); }
+      } else if (choice.equals("12")) {
+        if (entries.isEmpty()) System.out.println("Vault is empty.");
+        else {
+          long shortCount = entries.stream().filter(e -> e.password().length() < 12).count();
+          long mediumCount = entries.stream().filter(e -> e.password().length() >= 12 && e.password().length() < 16).count();
+          long longCount = entries.stream().filter(e -> e.password().length() >= 16).count();
+          System.out.printf("Password lengths | under 12: %d | 12-15: %d | 16+: %d%n", shortCount, mediumCount, longCount);
+        }
       } else if (choice.equals("11")) {
         String alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#$%^&*()-_=+";
         StringBuilder generated = new StringBuilder(20);
